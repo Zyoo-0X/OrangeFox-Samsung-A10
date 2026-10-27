@@ -1,0 +1,47 @@
+DEVICE_PATH := device/samsung/a10
+
+# Architecture
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := generic
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv8-a
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := generic
+
+TARGET_IS_64_BIT := true
+
+# Bootloader / Platform
+TARGET_BOOTLOADER_BOARD_NAME := unknown
+TARGET_BOARD_PLATFORM := unknown
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
+
+# Kernel / Boot Image
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive androidboot.selinux=permissive
+BOARD_KERNEL_BASE := 0x10000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_OFFSET := 0x00008000
+BOARD_RAMDISK_OFFSET := 0x-10000000
+BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+BOARD_BOOT_HEADER_VERSION := 1
+BOARD_MKBOOTIMG_ARGS := --base $(BOARD_KERNEL_BASE) --pagesize $(BOARD_KERNEL_PAGESIZE) --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) --header_version $(BOARD_BOOT_HEADER_VERSION) --os_version 11.0.0 --os_patch_level 2022-12
+
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+
+# Partition Configuration
+BOARD_FLASH_BLOCK_SIZE := 262144
+
+# Recovery / TWRP / OrangeFox Support
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
+TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_HAS_LARGE_FILESYSTEM := true
+TARGET_USES_MKE2FS := true
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_SELECT_BUTTON := true
+TW_THEME := portrait_hdpi
+TW_EXTRA_LANGUAGES := true
